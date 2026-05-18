@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="m-2">Using XHR</h1>
+        <button class="btn btn-primary m-2" onclick="getData()">Click Here to get data</button>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>#id</td>
+                    <td>Name</td>
+                    <td>Author</td>
+                    <td>Price</td>
+                    <td>ISBN</td>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function displayData(products){
+            const tbody = document.getElementById('tbody')
+            tbody.innerHTML = ''
+            for(let e of products){
+                const row = `<tr>
+                    <td>${e.id}</td>
+                    <td>${e.Name}</td>
+                    <td>${e.Author}</td>
+                    <td>${e.Price}</td>
+                    <td>${e.isbn}</td>
+                    </tr>`
+                tbody.innerHTML += row
+            }
+        }
+
+        function getData(){
+            const xhr = new XMLHttpRequest()
+
+            xhr.open('GET', 'http://127.0.0.1:5500/books.json')
+            xhr.send()
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    const products = JSON.parse(xhr.response)
+                    displayData(products)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

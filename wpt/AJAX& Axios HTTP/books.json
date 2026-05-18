@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "Name":"Mruntyunjay",
+        "Author":"Shivaji Sawant",
+        "Price" : 1500,
+        "isbn" : "123456854675"
+    },
+    {
+        "id":1,
+        "Name":"Yugandhar",
+        "Author":"Shivaji Sawant",
+        "Price" : 2000,
+        "isbn" : "123456854687"
+    },
+    {
+        "id":1,
+        "Name":"ShriKrishna",
+        "Author":"Shivaji Sawant",
+        "Price" : 1700,
+        "isbn" : "123456854643"
+    },
+    {
+        "id":1,
+        "Name":"Chavvaa",
+        "Author":"Shivaji Sawant",
+        "Price" : 1400,
+        "isbn" : "123456854653"
+    },
+    {
+        "id":1,
+        "Name":"Moravala",
+        "Author":"Shivaji Sawant",
+        "Price" : 1600,
+        "isbn" : "123456854345"
+    }
+    
+]

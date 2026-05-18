@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Form</h2>
+
+    <input type="text" id="studentName" placeholder="Enter Student Name">
+
+    <input type="text" id="studentCourse" placeholder="Enter Course">
+
+    <button id="addBtn">Add Student</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#addBtn").click(function () {
+
+                let name = $("#studentName").val();
+                let course = $("#studentCourse").val();
+
+                if(name === "" || course === "") {
+                    alert("Please fill all fields");
+                    return;
+                }
+
+                let row = `
+                    <tr>
+                        <td>${name}</td>
+                        <td>${course}</td>
+                    </tr>
+                `;
+
+                $("#tableBody").append(row);
+
+                // Clear inputs
+                $("#studentName").val("");
+                $("#studentCourse").val("");
+            });
+
+        });
+    </script>
+
+</body>
+</html>
